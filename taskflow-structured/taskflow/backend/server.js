@@ -1,0 +1,11 @@
+const express = require('express'), http = require('http'), path = require('path');
+const { PORT } = require('./src/config'), realtime = require('./src/realtime');
+const app = express(), server = http.createServer(app);
+realtime.init(server);
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+app.use('/api', require('./src/routes/auth'));
+app.use('/api/projects', require('./src/routes/projects'));
+app.use('/api/tasks', require('./src/routes/tasks'));
+app.use('/api/notifications', require('./src/routes/notifications'));
+server.listen(PORT, () => console.log('TaskFlow running on http://localhost:' + PORT));

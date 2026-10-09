@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TaskFlow</title><link rel="stylesheet" href="/css/style.css"></head><body>
+<div id="auth"><h2>TaskFlow</h2><input id="n" placeholder="Name (register only)"><input id="e" placeholder="Email"><input id="pw" type="password" placeholder="Password">
+<button onclick="authGo('login')">Login</button><button class="g" onclick="authGo('register')">Register</button><small id="err" style="color:#dc2626"></small></div>
+<div id="app"><header><b>TaskFlow</b><div style="display:flex;gap:16px;align-items:center"><div id="bell" onclick="toggleN()">🔔 <span id="cnt"></span><div id="nl"></div></div><span id="me"></span><button class="g" onclick="logout()">Logout</button></div></header>
+<aside><div class="bar"><input id="pn" placeholder="New project" style="width:100%"><button onclick="addProject()">Create project</button></div><div id="pl"></div></aside>
+<main id="main"><p>Select or create a project.</p></main></div>
+<div id="modal" onclick="if(event.target===this)this.style.display='none'"><div id="mb"></div></div><div id="toast"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/projects.js"></script>
+<script src="/js/board.js"></script>
+<script src="/js/taskModal.js"></script>
+<script src="/js/notifications.js"></script>
+<script src="/js/main.js"></script>
+</body></html>
